@@ -1,0 +1,41 @@
+<section class="gift-guide page-width">
+  <h2>{{ section.settings.heading }}</h2>
+  <p>{{ section.settings.subheading }}</p>
+  <a href="{{ section.settings.button_link }}" class="btn btn--primary">{{ section.settings.button_text }}</a>
+</section>
+
+{% schema %}
+{
+  "name": "Gift Guide Text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Gift Guide"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Discover joy..."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gift Guide Text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,10 +1,8 @@
 <!doctype html>
-<html
-  class="no-js{% if request.design_mode %} shopify-design-mode{% endif %}"
-  lang="{{ request.locale.iso_code }}"
->
+
   <head>
     {%- render 'stylesheets' -%}
+  {{ 'custom.css' | asset_url | stylesheet_tag }}
 
     {%- if settings.favicon != blank -%}
       <link
@@ -34,12 +32,50 @@
 
     {{ content_for_header }}
   </head>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+    const plusIcons = document.querySelectorAll("img[data-modal-target]");
+    const modals = document.querySelectorAll(".modal");
+
+    plusIcons.forEach(icon => {
+      icon.addEventListener("click", () => {
+        const modalId = icon.getAttribute("data-modal-target");
+        const modal = document.querySelector(modalId);
+
+        if (modal) {
+          modal.classList.add("active");
+        }
+      });
+    });
+
+    // 👉 Close modal when clicking close button or background
+    modals.forEach(modal => {
+      // Close on ❌ button
+      const closeBtn = modal.querySelector(".modal__close");
+      if (closeBtn) {
+        closeBtn.addEventListener("click", () => {
+          modal.classList.remove("active");
+          console.log("❌ CLOSED via button:", modal.id);
+        });
+      }
+
+      // Close on background click
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          modal.classList.remove("active");
+          console.log("❌ CLOSED via background:", modal.id);
+        }
+      });
+    });
+  });
+</script>
+
+
 
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
-    <div id="header-group">
-      {% sections 'header-group' %}
-    </div>
+   
 
     <script
       src="{{ 'critical.js' | asset_url }}"
@@ -59,12 +95,14 @@
       {{ content_for_layout }}
     </main>
 
-    {% sections 'footer-group' %}
+    {% sections 'customer-grid' %}
 
     {% render 'search-modal' %}
 
     {% if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add-modal' %}
     {% endif %}
+      {{ content_for_footer }}
+
   </body>
 </html>

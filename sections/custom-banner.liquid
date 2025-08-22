@@ -1,0 +1,79 @@
+<section class="custom-banner">
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar__left">
+      <span class="site-logo">TISSO VISON</span>
+    </div>
+    <div class="top-bar__center">
+      <span class="top-bar__tagline">Find the ideal gift for your loved ones.</span>
+    </div>
+    <div class="top-bar__right">
+      <a href="/collections/all" class="choose-gift-button">CHOOSE GIFT →</a>
+    </div>
+  </div>
+
+  <!-- Top SVG -->
+  <div class="custom-banner__frame-wrapper">
+    <img src="{{ 'Frame.svg' | asset_url }}" alt="Top Frame" />
+  </div>
+
+  <!-- Main Content -->
+  <div class="custom-banner__content">
+    <div class="custom-banner__text">
+      <h1 class="custom-banner__heading">{{ section.settings.heading }}</h1>
+      <p class="custom-banner__subheading">{{ section.settings.subheading }}</p>
+    <a href="{{ section.settings.button_link }}" class="custom-banner__button">
+  {{ section.settings.button_text }} <span class="arrow">→</span>
+</a>
+
+
+
+    </div>
+      <div class="custom-banner__bottom-frame-wrapper">
+    <img src="{{ 'Srame.svg' | asset_url }}" alt="Bottom Frame" />
+  </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Custom Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Gift Guide"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Banner"
+    }
+  ]
+}
+{% endschema %}

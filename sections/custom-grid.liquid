@@ -1,0 +1,862 @@
+<section class="custom-grid">
+  <div class="custom-grid__title-wrapper">
+    <h2 class="custom-grid__title">{{ section.settings.title }}</h2>
+    <div class="custom-grid__white-rectangle"></div>
+ <div class="tisso-section__title">
+  <h3>Tisso vison in the wild</h3>
+  <div class="tisso-section__icons">
+    <img src="{{ 'grid1.svg' | asset_url }}" alt="Icon 1" class="tisso-section__icon" />
+    <img src="{{ 'grid2.svg' | asset_url }}" alt="Icon 2" class="tisso-section__icon" />
+    <img src="{{ 'grid3.svg' | asset_url }}" alt="Icon 3" class="tisso-section__icon" />
+    <img src="{{ 'grid4.svg' | asset_url }}" alt="Icon 4" class="tisso-section__icon" />
+    <img src="{{ 'grid5.svg' | asset_url }}" alt="Icon 5" class="tisso-section__icon" />
+    <img src="{{ 'grid6.svg' | asset_url }}" alt="Icon 6" class="tisso-section__icon" />
+ <img 
+  src="{{ 'plus.svg' | asset_url }}" 
+  alt="Plus icon" 
+  class="plus-icon"
+  data-modal-target="#modal1"
+/>
+<img 
+  src="{{ 'plus.svg' | asset_url }}" 
+  alt="Plus icon" 
+  class="plus-icon1"
+  data-modal-target="#modal2"
+/>
+<img 
+  src="{{ 'plus.svg' | asset_url }}" 
+  alt="Plus icon" 
+  class="plus-icon2"
+  data-modal-target="#modal3"
+/>
+<img 
+  src="{{ 'plus.svg' | asset_url }}" 
+  alt="Plus icon" 
+  class="plus-icon3"
+  data-modal-target="#modal4"
+/>
+<img 
+  src="{{ 'plus.svg' | asset_url }}" 
+  alt="Plus icon" 
+  class="plus-icon4"
+  data-modal-target="#modal5"
+/>
+<img 
+  src="{{ 'plus.svg' | asset_url }}" 
+  alt="Plus icon" 
+  class="plus-icon5"
+  data-modal-target="#modal6"
+/>
+
+
+  </div>
+</div>
+
+
+  </div>
+
+  <div class="custom-grid__wrapper">
+    {% for block in section.blocks %}
+      <div class="custom-grid__item">
+        <img 
+          src="{{ block.settings.image | image_url: width: 600 }}" 
+          alt="Custom Grid Image"
+          loading="lazy"
+        />
+       
+        {% if block.settings.link != blank %}
+          <a href="{{ block.settings.link }}" class="custom-grid__hotspot">+</a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+</section>
+
+<div id="modal1" class="modal">
+  <div class="modal__content product-modal">
+    <button class="modal__close" onclick="document.getElementById('modal1').classList.remove('active')">&times;</button>
+
+    <div class="modal__top">
+      <img src="{{ 'grid2.svg' | asset_url }}" alt="Tailored Jacket" class="modal__product-image" />
+      <div class="modal__info">
+        <h3 class="modal__product-title">Tailored Jacket</h3>
+        <p class="modal__price">980,00€</p>
+        <p class="modal__description">
+          This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.
+        </p>
+      </div>
+    </div>
+
+    <div class="modal__options">
+      <div class="modal__option-group">
+        <label>Color</label>
+        <div class="modal__colors">
+          <button class="modal__color-btn default-selected" onclick="selectColor(this)">Blue</button>
+          <div class="divider-line"></div>
+          <button class="modal__color-btn" onclick="selectColor(this)">Black</button>
+        </div>
+      </div>
+
+      <label for="size1">Size</label>
+      <div class="custom-select-wrapper">
+        <select id="size1" class="custom-select" onchange="updateSelectedSize(this)">
+          <option selected disabled hidden>Choose your size</option>
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Hidden inputs to track selected options -->
+    <input type="hidden" id="selectedColor1" value="Blue">
+    <input type="hidden" id="selectedSize1" value="">
+
+    <!-- Add to Cart -->
+    <button class="add-to-cart-btn" id="addToCart1">
+      <span class="addcart">ADD TO CART</span>
+      <span class="arrow">→</span>
+    </button>
+  </div>
+</div>
+
+
+
+
+
+<div id="modal6" class="modal">
+  <div class="modal__content product-modal">
+    <button class="modal__close" onclick="document.getElementById('modal6').classList.remove('active')">&times;</button>
+
+    <div class="modal__top">
+      <img src="{{ 'grid1.svg' | asset_url }}" alt="Orange Wide Leg" class="modal__product-image" />
+      <div class="modal__info">
+        <h3 class="modal__product-title">Orange Wide Leg</h3>
+        <p class="modal__price">980,00€</p>
+        <p class="modal__description">
+          This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.
+        </p>
+      </div>
+    </div>
+
+    <div class="modal__options">
+      <div class="modal__option-group">
+        <label>Color</label>
+        <div class="modal__colors">
+          <button class="modal__color-btn default-selected1" onclick="selectColor(this)">White</button>
+                    <div class="divider-line"></div>
+
+          <button class="modal__color-btn" onclick="selectColor(this)">Black</button>
+        </div>
+      </div>
+
+
+
+
+      <label for="size6">Size</label>
+      <div class="custom-select-wrapper">
+        <select id="size6" class="custom-select" onchange="updateSelectedSize(this)">
+          <option selected disabled hidden>Choose your size</option>
+          <option value="xs">XS</option>
+          <option value="s">S</option>
+          <option value="m">M</option>
+          <option value="l">L</option>
+          <option value="xl">XL</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Hidden fields -->
+    <input type="hidden" id="selectedColor6" value="White">
+    <input type="hidden" id="selectedSize6" value="">
+
+    <button class="add-to-cart-btn" id="addToCart6">
+      <span class="addcart">ADD TO CART</span>
+      <span class="arrow">→</span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<div id="modal5" class="modal">
+  <div class="modal__content product-modal">
+    <button class="modal__close" onclick="document.getElementById('modal5').classList.remove('active')">&times;</button>
+
+    <div class="modal__top">
+      <img src="{{ 'grid3.svg' | asset_url }}" alt="Orange Wide Leg" class="modal__product-image" />
+      <div class="modal__info">
+        <h3 class="modal__product-title">Accordion Pleated Dress</h3>
+        <p class="modal__price">980,00€</p>
+        <p class="modal__description">
+          This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.
+        </p>
+      </div>
+    </div>
+
+    <div class="modal__options">
+      <div class="modal__option-group">
+        <label>Color</label>
+        <div class="modal__colors">
+          <button class="modal__color-btn default-selected5" onclick="selectColor(this)">Red</button>
+                              <div class="divider-line"></div>
+
+          <button class="modal__color-btn" onclick="selectColor(this)">Grey</button>
+        </div>
+      </div>
+ 
+
+
+    <label for="size5">Size</label>
+<div class="custom-select-wrapper">
+  <select id="size5" class="custom-select" onchange="updateSelectedSize(this)">
+    <option selected disabled hidden>Choose your size</option>
+    <option value="xs">XS</option>
+    <option value="s">S</option>
+    <option value="m">M</option>
+    <option value="l">L</option>
+    <option value="xl">XL</option>
+  </select>
+</div>
+
+    </div>
+
+ <!-- Hidden fields -->
+    <input type="hidden" id="selectedColor5" value="Red">
+    <input type="hidden" id="selectedSize5" value="">
+
+    <button class="add-to-cart-btn" id="addToCart5">
+      <span class="addcart">ADD TO CART</span>
+      <span class="arrow">→</span>
+    </button>
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div id="modal2" class="modal">
+  <div class="modal__content product-modal">
+    <button class="modal__close" onclick="document.getElementById('modal2').classList.remove('active')">&times;</button>
+
+    <div class="modal__top">
+      <img src="{{ 'grid4.svg' | asset_url }}" alt="Orange Wide Leg" class="modal__product-image" />
+      <div class="modal__info">
+        <h3 class="modal__product-title">Green Trench Coat</h3>
+        <p class="modal__price">980,00€</p>
+        <p class="modal__description">
+          This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.
+        </p>
+      </div>
+    </div>
+
+    <div class="modal__options">
+      <div class="modal__option-group">
+        <label>Color</label>
+        <div class="modal__colors">
+          <button class="modal__color-btn default-selected1" onclick="selectColor(this)">White</button>
+                              <div class="divider-line"></div>
+
+          <button class="modal__color-btn" onclick="selectColor(this)">Black</button>
+        </div>
+      </div>
+ 
+
+
+    <label for="size2">Size</label>
+<div class="custom-select-wrapper">
+  <select id="size2" class="custom-select" onchange="updateSelectedSize(this)">
+    <option selected disabled hidden>Choose your size</option>
+    <option value="xs">XS</option>
+    <option value="s">S</option>
+    <option value="m">M</option>
+    <option value="l">L</option>
+    <option value="xl">XL</option>
+  </select>
+</div>
+
+    </div>
+
+ <!-- Hidden fields -->
+    <input type="hidden" id="selectedColor2" value="White">
+    <input type="hidden" id="selectedSize2" value="">
+
+    <button class="add-to-cart-btn" id="addToCart2">
+      <span class="addcart">ADD TO CART</span>
+      <span class="arrow">→</span>
+    </button>
+
+    
+  </div>
+</div>
+
+
+
+<div id="modal4" class="modal">
+  <div class="modal__content product-modal">
+    <button class="modal__close" onclick="document.getElementById('modal4').classList.remove('active')">&times;</button>
+
+    <div class="modal__top">
+      <img src="{{ 'grid5.svg' | asset_url }}" alt="Orange Wide Leg" class="modal__product-image" />
+      <div class="modal__info">
+        <h3 class="modal__product-title">Tennis Blue T-Shirt</h3>
+        <p class="modal__price">980,00€</p>
+        <p class="modal__description">
+          This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.
+        </p>
+      </div>
+    </div>
+
+    <div class="modal__options">
+      <div class="modal__option-group">
+        <label>Color</label>
+        <div class="modal__colors">
+          <button class="modal__color-btn default-selected4" onclick="selectColor(this)">Grey</button>
+                              <div class="divider-line"></div>
+
+          <button class="modal__color-btn" onclick="selectColor(this)">Black</button>
+        </div>
+      </div>
+ 
+
+
+    <label for="size4">Size</label>
+<div class="custom-select-wrapper">
+  <select id="size4" class="custom-select" onchange="updateSelectedSize(this)">
+    <option selected disabled hidden>Choose your size</option>
+    <option value="xs">XS</option>
+    <option value="s">S</option>
+    <option value="m">M</option>
+    <option value="l">L</option>
+    <option value="xl">XL</option>
+  </select>
+</div>
+
+    </div>
+
+ <!-- Hidden fields -->
+    <input type="hidden" id="selectedColor4" value="Grey">
+    <input type="hidden" id="selectedSize4" value="">
+
+    <button class="add-to-cart-btn" id="addToCart4">
+      <span class="addcart">ADD TO CART</span>
+      <span class="arrow">→</span>
+    </button>
+
+    
+  </div>
+</div>
+
+
+<div id="modal3" class="modal">
+  <div class="modal__content product-modal">
+    <button class="modal__close" onclick="document.getElementById('modal3').classList.remove('active')">&times;</button>
+
+    <div class="modal__top">
+      <img src="{{ 'grid6.svg' | asset_url }}" alt="Orange Wide Leg" class="modal__product-image" />
+      <div class="modal__info">
+        <h3 class="modal__product-title">Long Sleeve Tennis Top</h3>
+        <p class="modal__price">980,00€</p>
+        <p class="modal__description">
+          This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.
+        </p>
+      </div>
+    </div>
+
+    <div class="modal__options">
+      <div class="modal__option-group">
+        <label>Color</label>
+        <div class="modal__colors">
+          <button class="modal__color-btn default-selected" onclick="selectColor(this)">Blue</button>
+                              <div class="divider-line"></div>
+
+          <button class="modal__color-btn" onclick="selectColor(this)">Black</button>
+        </div>
+      </div>
+ 
+
+
+    <label for="size">Size</label>
+<div class="custom-select-wrapper">
+  <select id="size" class="custom-select" onchange="updateSelectedSize(this)">
+    <option selected disabled hidden>Choose your size</option>
+    <option value="xs">XS</option>
+    <option value="s">S</option>
+    <option value="m">M</option>
+    <option value="l">L</option>
+    <option value="xl">XL</option>
+  </select>
+</div>
+
+    </div>
+ <!-- Hidden fields -->
+    <input type="hidden" id="selectedColor3" value="Grey">
+    <input type="hidden" id="selectedSize3" value="">
+
+    <button class="add-to-cart-btn" id="addToCart3">
+      <span class="addcart">ADD TO CART</span>
+      <span class="arrow">→</span>
+    </button>
+    
+  </div>
+</div>
+
+<script>
+function selectColor(button) {
+  const modal = button.closest('.modal');
+  const buttons = modal.querySelectorAll('.modal__color-btn');
+
+  // Reset all buttons
+  buttons.forEach(btn => {
+    btn.classList.remove('selected', 'blue-selected');
+  });
+
+  // Apply selection to clicked button
+  button.classList.add('selected');
+
+  // If the color is Blue, add blue-specific style
+  if (button.innerText.trim().toLowerCase() === 'blue') {
+    button.classList.add('blue-selected');
+  }
+
+  // Update hidden input
+  const selectedColor = button.innerText.trim();
+  const colorInput = modal.querySelector('input[id^="selectedColor"]');
+  if (colorInput) {
+    colorInput.value = selectedColor;
+  }
+}
+
+function updateSelectedSize(select) {
+  const modal = select.closest('.modal');
+  const selectedSize = select.value;
+  modal.querySelector('input[id^="selectedSize"]').value = selectedSize;
+}
+
+document.getElementById('addToCart1').addEventListener('click', function () {
+  const modal = document.getElementById('modal1');
+
+  const title = modal.querySelector('.modal__product-title').innerText;
+  const price = modal.querySelector('.modal__price').innerText;
+  const color = modal.querySelector('#selectedColor1').value;
+  const size = modal.querySelector('#selectedSize1').value;
+
+  if (!size) {
+    alert("Please select a size.");
+    return;
+  }
+
+  const product = {
+    id: Date.now(),
+    title,
+    price,
+    color,
+    size,
+    quantity: 1
+  };
+
+  let cart = JSON.parse(localStorage.getItem('customCart')) || [];
+
+  // Check for duplicate product
+  const existingIndex = cart.findIndex(
+    item => item.title === title && item.color === color && item.size === size
+  );
+
+  if (existingIndex > -1) {
+    cart[existingIndex].quantity += 1;
+  } else {
+    cart.push(product);
+  }
+
+  if (color.toLowerCase() === 'black' && size.toLowerCase() === 'm') {
+    const winterJacket = {
+      id: Date.now() + 1, // ensure unique ID
+      title: "Soft Winter Jacket",
+      price: "0,00€",
+      color: "Default",
+      size: "Default",
+      quantity: 1,
+      isBonus: true
+    };
+
+    const bonusExists = cart.some(
+      item => item.title === winterJacket.title
+    );
+
+    if (!bonusExists) {
+      cart.push(winterJacket);
+      alert('“Soft Winter Jacket” was automatically added to your cart!');
+    }
+  }
+
+  localStorage.setItem('customCart', JSON.stringify(cart));
+  alert('Added to cart!');
+});
+
+
+
+document.querySelector('#size6').addEventListener('change', function () {
+  document.getElementById('selectedSize6').value = this.value;
+});
+
+// Add to Cart for Modal 6
+document.getElementById('addToCart6').addEventListener('click', function () {
+  const modal = document.getElementById('modal6');
+  const title = modal.querySelector('.modal__product-title').innerText;
+  const price = modal.querySelector('.modal__price').innerText;
+  const color = modal.querySelector('#selectedColor6').value;
+  const size = modal.querySelector('#selectedSize6').value;
+
+  if (!size) {
+    alert("Please select a size.");
+    return;
+  }
+
+  const product = {
+    id: Date.now(),
+    title,
+    price,
+    color,
+    size,
+    quantity: 1
+  };
+
+  let cart = JSON.parse(localStorage.getItem('customCart')) || [];
+
+  const existingIndex = cart.findIndex(
+    item => item.title === title && item.color === color && item.size === size
+  );
+
+  if (existingIndex > -1) {
+    cart[existingIndex].quantity += 1;
+  } else {
+    cart.push(product);
+  }
+
+  // Auto-add "Soft Winter Jacket" if Black + M
+  if (color.toLowerCase() === "black" && size.toLowerCase() === "m") {
+    const winterJacket = {
+      id: Date.now() + 1,
+      title: "Soft Winter Jacket",
+      price: "0,00€",
+      color: "Default",
+      size: "Default",
+      quantity: 1,
+      isBonus: true
+    };
+
+    const alreadyAdded = cart.some(item => item.title === winterJacket.title);
+    if (!alreadyAdded) {
+      cart.push(winterJacket);
+      alert("‘Soft Winter Jacket’ has been added to your cart for free!");
+    }
+  }
+
+  localStorage.setItem('customCart', JSON.stringify(cart));
+  alert("Product added to cart!");
+});
+
+
+document.querySelector('#size5').addEventListener('change', function () {
+  document.getElementById('selectedSize5').value = this.value;
+});
+
+// Add to Cart for Modal 5
+document.getElementById('addToCart5').addEventListener('click', function () {
+  const modal = document.getElementById('modal5');
+  const title = modal.querySelector('.modal__product-title').innerText;
+  const price = modal.querySelector('.modal__price').innerText;
+  const color = modal.querySelector('#selectedColor5').value;
+  const size = modal.querySelector('#selectedSize5').value;
+
+  if (!size) {
+    alert("Please select a size.");
+    return;
+  }
+
+  const product = {
+    id: Date.now(),
+    title,
+    price,
+    color,
+    size,
+    quantity: 1
+  };
+
+  let cart = JSON.parse(localStorage.getItem('customCart')) || [];
+
+  const existingIndex = cart.findIndex(
+    item => item.title === title && item.color === color && item.size === size
+  );
+
+  if (existingIndex > -1) {
+    cart[existingIndex].quantity += 1;
+  } else {
+    cart.push(product);
+  }
+
+  // Auto-add "Soft Winter Jacket" if Black + M
+  if (color.toLowerCase() === "black" && size.toLowerCase() === "m") {
+    const winterJacket = {
+      id: Date.now() + 1,
+      title: "Soft Winter Jacket",
+      price: "0,00€",
+      color: "Default",
+      size: "Default",
+      quantity: 1,
+      isBonus: true
+    };
+
+    const alreadyAdded = cart.some(item => item.title === winterJacket.title);
+    if (!alreadyAdded) {
+      cart.push(winterJacket);
+      alert("‘Soft Winter Jacket’ has been added to your cart for free!");
+    }
+  }
+
+  localStorage.setItem('customCart', JSON.stringify(cart));
+  alert("Product added to cart!");
+});
+
+
+document.querySelector('#size2').addEventListener('change', function () {
+  document.getElementById('selectedSize2').value = this.value;
+});
+
+// Add to Cart for Modal 2
+document.getElementById('addToCart2').addEventListener('click', function () {
+  const modal = document.getElementById('modal2');
+  const title = modal.querySelector('.modal__product-title').innerText;
+  const price = modal.querySelector('.modal__price').innerText;
+  const color = modal.querySelector('#selectedColor2').value;
+  const size = modal.querySelector('#selectedSize2').value;
+
+  if (!size) {
+    alert("Please select a size.");
+    return;
+  }
+
+  const product = {
+    id: Date.now(),
+    title,
+    price,
+    color,
+    size,
+    quantity: 1
+  };
+
+  let cart = JSON.parse(localStorage.getItem('customCart')) || [];
+
+  const existingIndex = cart.findIndex(
+    item => item.title === title && item.color === color && item.size === size
+  );
+
+  if (existingIndex > -1) {
+    cart[existingIndex].quantity += 1;
+  } else {
+    cart.push(product);
+  }
+
+  // Auto-add "Soft Winter Jacket" if Black + M
+  if (color.toLowerCase() === "black" && size.toLowerCase() === "m") {
+    const winterJacket = {
+      id: Date.now() + 1,
+      title: "Soft Winter Jacket",
+      price: "0,00€",
+      color: "Default",
+      size: "Default",
+      quantity: 1,
+      isBonus: true
+    };
+
+    const alreadyAdded = cart.some(item => item.title === winterJacket.title);
+    if (!alreadyAdded) {
+      cart.push(winterJacket);
+      alert("‘Soft Winter Jacket’ has been added to your cart for free!");
+    }
+  }
+
+  localStorage.setItem('customCart', JSON.stringify(cart));
+  alert("Product added to cart!");
+});
+
+
+
+
+
+// Add to Cart for Modal 4
+document.getElementById('addToCart4').addEventListener('click', function () {
+  const modal = document.getElementById('modal4');
+  const title = modal.querySelector('.modal__product-title').innerText;
+  const price = modal.querySelector('.modal__price').innerText;
+  const color = modal.querySelector('#selectedColor4').value;
+  const size = modal.querySelector('#selectedSize4').value;
+
+  if (!size) {
+    alert("Please select a size.");
+    return;
+  }
+
+  const product = {
+    id: Date.now(),
+    title,
+    price,
+    color,
+    size,
+    quantity: 1
+  };
+
+  let cart = JSON.parse(localStorage.getItem('customCart')) || [];
+
+  const existingIndex = cart.findIndex(
+    item => item.title === title && item.color === color && item.size === size
+  );
+
+  if (existingIndex > -1) {
+    cart[existingIndex].quantity += 1;
+  } else {
+    cart.push(product);
+  }
+
+  // Auto-add "Soft Winter Jacket" if Black + M
+  if (color.toLowerCase() === "black" && size.toLowerCase() === "m") {
+    const winterJacket = {
+      id: Date.now() + 1,
+      title: "Soft Winter Jacket",
+      price: "0,00€",
+      color: "Default",
+      size: "Default",
+      quantity: 1,
+      isBonus: true
+    };
+
+    const alreadyAdded = cart.some(item => item.title === winterJacket.title);
+    if (!alreadyAdded) {
+      cart.push(winterJacket);
+      alert("‘Soft Winter Jacket’ has been added to your cart for free!");
+    }
+  }
+
+  localStorage.setItem('customCart', JSON.stringify(cart));
+  alert("Product added to cart!");
+});
+
+
+// Add to Cart for Modal 3
+document.getElementById('addToCart3').addEventListener('click', function () {
+  const modal = document.getElementById('modal3');
+  const title = modal.querySelector('.modal__product-title').innerText;
+  const price = modal.querySelector('.modal__price').innerText;
+  const color = modal.querySelector('#selectedColor3').value;
+  const size = modal.querySelector('#selectedSize3').value;
+
+  if (!size) {
+    alert("Please select a size.");
+    return;
+  }
+
+  const product = {
+    id: Date.now(),
+    title,
+    price,
+    color,
+    size,
+    quantity: 1
+  };
+
+  let cart = JSON.parse(localStorage.getItem('customCart')) || [];
+
+  const existingIndex = cart.findIndex(
+    item => item.title === title && item.color === color && item.size === size
+  );
+
+  if (existingIndex > -1) {
+    cart[existingIndex].quantity += 1;
+  } else {
+    cart.push(product);
+  }
+
+  // Auto-add "Soft Winter Jacket" if Black + M
+  if (color.toLowerCase() === "black" && size.toLowerCase() === "m") {
+    const winterJacket = {
+      id: Date.now() + 1,
+      title: "Soft Winter Jacket",
+      price: "0,00€",
+      color: "Default",
+      size: "Default",
+      quantity: 1,
+      isBonus: true
+    };
+
+    const alreadyAdded = cart.some(item => item.title === winterJacket.title);
+    if (!alreadyAdded) {
+      cart.push(winterJacket);
+      alert("‘Soft Winter Jacket’ has been added to your cart for free!");
+    }
+  }
+
+  localStorage.setItem('customCart', JSON.stringify(cart));
+  alert("Product added to cart!");
+});
+
+
+</script>
+
+
+{% schema %}
+{
+  "name": "Custom Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Grid Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Hotspot Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Custom Grid",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}
